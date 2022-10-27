@@ -11,39 +11,60 @@
         v-for="(element, elementIndex) in row"
         :key="elementIndex"
       >
-        <template v-if="element.includes('circle') || element.includes('box')">
-          <span class="element" :class="element">
-            {{ element }}
-          </span>
-        </template>
-        <template v-if="element.includes('rec16') || element.includes('rec9')">
-          <span class="element rec" :class="element">
-            {{ element }}
-          </span>
-        </template>
-        <template v-if="element.includes('title')">
-          <span class="element title">
-            {{ element }}
-          </span>
-        </template>
-        <template v-if="element === 'text'">
-          <span class="element text">
-            {{ element }}
-          </span>
-        </template>
-        <template v-if="element === 'title + text'">
-          <span class="element text">
-            {{ element }}
-          </span>
-        </template>
+        <span
+          v-if="element.includes('circle')"
+          class="element"
+          :class="element"
+          :style="{
+            width: 100 + '%',
+            height: 50 + 'px',
+          }"
+        >
+        </span>
+        <span
+          v-if="element.includes('box')"
+          class="element"
+          :class="element"
+          :style="{
+            width: 50 + 'px',
+            height: 50 + 'px',
+          }"
+        >
+        </span>
+        <span
+          v-if="element.includes('rec16_9')"
+          class="element"
+          :class="element"
+          :style="{
+            width: 140 + 'px',
+            height: 200 + 'px',
+          }"
+        >
+        </span>
+        <span
+          v-if="element.includes('rec9_16')"
+          class="element"
+          :class="element"
+          :style="{
+            width: 200 + 'px',
+            height: 140 + 'px',
+          }"
+        >
+        </span>
+        <span v-if="element.includes('title')" class="element title"></span>
+        <span v-if="element === 'text'" class="element text"></span>
+        <span
+          v-if="element === 'title + text'"
+          class="element"
+          :class="element"
+        ></span>
         <template v-if="element.includes('text:')">
           <span
+            v-for="(e, i) in parseInt(element.split(':')[1], 10)"
             class="element text"
             :class="element"
-            v-for="(e, i) in parseInt(element.split(':')[1], 10)"
             :key="i"
           >
-            {{ element }}
           </span>
         </template>
       </span>
@@ -54,12 +75,23 @@
 <script>
 export default {
   name: "VSkeletonLoader",
+  data() {
+    return {
+      height: {
+        type: [Number, String],
+        default: 200,
+      },
+      width: {
+        type: [Number, String],
+        default: 200,
+      },
+    };
+  },
   props: {
     content: {
       type: Array,
     },
   },
-  //  포털 , 이중배열, 인풋 그려지게
 };
 </script>
 
@@ -114,15 +146,7 @@ export default {
     transform: translateX(100%);
   }
 }
-.element.box {
-  width: 70px;
-  height: 0;
-  padding-bottom: 100%;
-}
 .element.circle {
-  width: 70px;
-  height: 0;
-  padding-bottom: 100%;
   border-radius: 50%;
 }
 .element.title {
@@ -142,16 +166,5 @@ export default {
 }
 .element.text:nth-child(4) {
   width: 60%;
-}
-
-.element.rec16_9 {
-  width: 140px;
-  height: 0;
-  padding-bottom: 70%;
-}
-.element.rec9_16 {
-  width: 98px;
-  height: 0;
-  padding-bottom: 143%;
 }
 </style>

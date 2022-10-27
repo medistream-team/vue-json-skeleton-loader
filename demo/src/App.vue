@@ -211,9 +211,10 @@ export default {
   },
 };
 </script>
+
 <style>
 #app {
-  width: 800px;
+  width: 700px;
   margin: 0 auto;
 }
 h1 {
