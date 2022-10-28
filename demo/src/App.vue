@@ -186,7 +186,7 @@ export default {
       type47: [["rec9_16", "title + text:2"], ["text:2"], ["text:2"]],
       type48: [["rec9_16", "title + text:3"], ["text:3"], ["text:3"]],
 
-      textInput: "",
+      textInput: JSON.stringify(JSON.parse('["box", "title + text"]')),
       submitData: [],
     };
   },
