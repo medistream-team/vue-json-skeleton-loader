@@ -6,7 +6,7 @@
       :key="rowIndex"
       v-bind:class="rowIndex"
     >
-      <span
+      <div
         class="col"
         v-for="(element, elementIndex) in row"
         :key="elementIndex"
@@ -16,7 +16,7 @@
           class="element"
           :class="element"
           :style="{
-            width: 100 + '%',
+            width: 50 + 'px',
             height: 50 + 'px',
           }"
         >
@@ -36,8 +36,8 @@
           class="element"
           :class="element"
           :style="{
-            width: 140 + 'px',
-            height: 200 + 'px',
+            width: 50 + 'px',
+            height: 50 + 'px',
           }"
         >
         </span>
@@ -46,11 +46,12 @@
           class="element"
           :class="element"
           :style="{
-            width: 200 + 'px',
-            height: 140 + 'px',
+            width: 50 + 'px',
+            height: 50 + 'px',
           }"
         >
         </span>
+
         <span v-if="element.includes('title')" class="element title"></span>
         <span v-if="element === 'text'" class="element text"></span>
         <span
@@ -67,7 +68,7 @@
           >
           </span>
         </template>
-      </span>
+      </div>
     </div>
   </div>
 </template>
@@ -110,15 +111,17 @@ export default {
   margin-top: 13px;
 }
 .col {
+  flex-grow: 1;
   margin: 0 5px;
 }
-.col:last-child {
-  flex: 1 0 auto;
+.col:first-child {
+  flex-grow: 0;
 }
 .element {
   display: block;
   position: relative;
   width: 100%;
+  height: 100%;
   margin: 5px 0;
   background-color: #dddbdd;
   border-radius: 5px;
