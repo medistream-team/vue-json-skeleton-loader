@@ -126,8 +126,7 @@
 </template>
 
 <script>
-import "@/components/VSkeletonLoader";
-import VSkeletonLoader from "./components/VSkeletonLoader.vue";
+import VSkeletonLoader from "@/components/VSkeletonLoader.vue";
 export default {
   name: "App",
   components: {
