@@ -24,7 +24,16 @@
       </div>
       <div class="samples">
         <h3>Test Case</h3>
-        <VSkeletonLoader :content="submitData" />
+        <VSkeletonLoader
+          :content="submitData"
+          :options="{
+            borderRadius: 10,
+            primaryColor: '#eee',
+            secondaryColor: '#ccc',
+            animate: true,
+            speed: 1000,
+            defaultSize: 70
+          }"/>
         <h3>Case #1</h3>
         <VSkeletonLoader :content="type1" />
         <h3>Case #2</h3>
