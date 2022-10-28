@@ -2,6 +2,7 @@
   <div id="app">
     <div class="container">
       <h1>VSkeletonLoader Demo</h1>
+      <MonacoEditor class="editor" v-model="textInput" language="javascript" />
       <div>
         <div id="textInput">
           <span class="txt"
@@ -127,10 +128,12 @@
 
 <script>
 import VSkeletonLoader from "@/components/VSkeletonLoader.vue";
+import MonacoEditor from 'vue-monaco';
 export default {
   name: "App",
   components: {
     VSkeletonLoader,
+    MonacoEditor
   },
   data() {
     return {
@@ -238,5 +241,10 @@ h3 {
   border-radius: 5px 10px;
   border: 1px solid #ddd;
   outline: none;
+}
+.editor {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #ddd;
 }
 </style>
