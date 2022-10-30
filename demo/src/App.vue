@@ -2,26 +2,14 @@
   <div id="app">
     <div class="container">
       <h1>VSkeletonLoader Demo</h1>
-      <MonacoEditor class="editor" v-model="textInput" language="javascript" />
-      <div>
-        <div id="textInput">
-          <span class="txt"
-            >ex&#41; <br />
-            &#91;"box", "title + text"&#93;, &#91;"text"&#93; <br />
-            &#91;"rec9_16", "title + text:3"&#93;, &#91;"text:3"&#93;,
-            &#91;"text:3"&#93;
-          </span>
-          <input
-            class="input"
-            type="text"
-            v-model="textInput"
-            v-on:keyup.enter="submitValue"
-            placeholder="타입을 입력해주세요"
-          />
-
-          <!-- <p>{{ textInput }}</p> -->
-        </div>
-      </div>
+      <MonacoEditor
+        id="textInput"
+        class="editor"
+        v-model="textInput"
+        language="javascript"
+        v-on:change="submitValue"
+        :options="options"
+      />
       <div class="samples">
         <h3>Test Case</h3>
         <VSkeletonLoader
@@ -32,8 +20,9 @@
             secondaryColor: '#ccc',
             animate: true,
             speed: 1000,
-            defaultSize: 70
-          }"/>
+            defaultSize: 70,
+          }"
+        />
         <h3>Case #1</h3>
         <VSkeletonLoader :content="type1" />
         <h3>Case #2</h3>
@@ -137,12 +126,12 @@
 
 <script>
 import VSkeletonLoader from "@/components/VSkeletonLoader.vue";
-import MonacoEditor from 'vue-monaco';
+import MonacoEditor from "vue-monaco";
 export default {
   name: "App",
   components: {
     VSkeletonLoader,
-    MonacoEditor
+    MonacoEditor,
   },
   data() {
     return {
@@ -195,10 +184,11 @@ export default {
       type47: [["rec9_16", "title + text:2"], ["text:2"], ["text:2"]],
       type48: [["rec9_16", "title + text:3"], ["text:3"], ["text:3"]],
 
-      textInput: JSON.stringify(JSON.parse('["box", "title + text"]')),
-      submitData: [],
+      textInput: JSON.stringify(JSON.parse('["rec9_16", "title + text:3"]')),
+      submitData: [["rec9_16", "title + text:3"]],
     };
   },
+
   methods: {
     convertArrStrToArr(inputStr) {
       return inputStr
@@ -210,7 +200,6 @@ export default {
         .split("-")
         .map((s) => s.split(",").map((v) => v.trim()));
     },
-
     submitValue() {
       try {
         this.submitData = this.convertArrStrToArr(this.textInput);
@@ -253,7 +242,12 @@ h3 {
 }
 .editor {
   width: 100%;
-  height: 300px;
+  height: 100px;
   border: 1px solid #ddd;
+}
+
+.minimap,
+.decorationsOverviewRuler {
+  display: none;
 }
 </style>
