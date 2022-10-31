@@ -106,11 +106,66 @@ export default {
   props: {
     content: {
       type: Array,
+      default() {
+        return [];
+      },
+    },
+  },
+  watch: {
+    content(content) {
+      // console.log("변경 감지");
+      // console.log("watch-content", content);
+
+      const tempCreateElementArr = [];
+      const tempElementArr = [];
+
+      // console.log("mounted, this.content: ", content);
+      // console.log("mounted, this.content: ", Array.isArray(content));
+
+      for (const con of content) {
+        for (const inn of con) {
+          if (inn === "circle") {
+            tempCreateElementArr.push(inn);
+          }
+
+          if (inn === "box") {
+            tempCreateElementArr.push(inn);
+          }
+
+          if (inn === "rec16_9") {
+            tempCreateElementArr.push(inn);
+          }
+
+          if (inn === "rec9_16") {
+            tempCreateElementArr.push(inn);
+          }
+
+          if (inn.includes("title")) {
+            tempElementArr.push(inn);
+          } else if (inn === "text") {
+            tempElementArr.push(inn);
+          } else if (inn === "title + text") {
+            tempElementArr.push(inn);
+          } else if (inn.includes("text:")) {
+            tempElementArr.push(inn);
+          }
+        }
+      }
+
+      // console.log({
+      //   tempCreateElementArr,
+      //   tempElementArr,
+      // });
+
+      this.createElementArr = tempCreateElementArr;
+      this.elementArr = tempElementArr;
     },
   },
   mounted: function () {
     const tempCreateElementArr = [];
     const tempElementArr = [];
+
+    // console.log("mounted, this.content: ", this.content);
 
     for (const con of this.content) {
       for (const inn of con) {
@@ -145,8 +200,8 @@ export default {
     this.createElementArr = tempCreateElementArr;
     this.elementArr = tempElementArr;
 
-    console.log("this.createElementArr: ", this.createElementArr);
-    console.log("this.elementArr: ", this.elementArr);
+    // console.log("this.createElementArr: ", this.createElementArr);
+    // console.log("this.elementArr: ", this.elementArr);
   },
 };
 </script>

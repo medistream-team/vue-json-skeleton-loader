@@ -2,8 +2,8 @@
   <div id="app">
     <div class="container">
       <h1>VSkeletonLoader Demo</h1>
+
       <MonacoEditor
-        id="textInput"
         class="editor"
         v-model="textInput"
         language="javascript"
@@ -183,9 +183,8 @@ export default {
       type46: [["rec9_16", "title + text"], ["text"], ["text"]],
       type47: [["rec9_16", "title + text:2"], ["text:2"], ["text:2"]],
       type48: [["rec9_16", "title + text:3"], ["text:3"], ["text:3"]],
-
-      textInput: JSON.stringify(JSON.parse('["rec9_16", "title + text:3"]')),
-      submitData: [["rec9_16", "title + text:3"]],
+      textInput: JSON.stringify(JSON.parse('["box", "title + text"]')),
+      submitData: [["box", "title + text"]],
     };
   },
 
@@ -202,7 +201,9 @@ export default {
     },
     submitValue() {
       try {
+        // console.log("submitValue-textInput: ", this.textInput);
         this.submitData = this.convertArrStrToArr(this.textInput);
+        // console.log("submitValue-submitData: ", this.submitData);
         this.textInput = "";
       } catch (e) {
         console.error(e);
