@@ -2,25 +2,38 @@
   <div id="app">
     <div class="container">
       <h1>VSkeletonLoader Demo</h1>
-
-      <MonacoEditor
-        class="editor"
-        v-model="textInput"
-        language="javascript"
-        v-on:change="submitValue"
-        :options="options"
-      />
+      <MonacoEditor class="editor" v-model="textInput" language="javascript" />
+      <div v-if="false">
+        <div id="textInput">
+          <span class="txt"
+            >ex&#41; <br />
+            &#91;"box", "title + text"&#93;, &#91;"text"&#93; <br />
+            &#91;"rec9_16", "title + text:3"&#93;, &#91;"text:3"&#93;,
+            &#91;"text:3"&#93;
+          </span>
+          <input
+            class="input"
+            type="text"
+            v-model="textInput"
+            v-on:keyup.enter="submitValue"
+            placeholder="타입을 입력해주세요"
+          />
+        </div>
+      </div>
       <div class="samples">
         <h3>Test Case</h3>
         <VSkeletonLoader
-          :content="submitData"
+          :content="textInput | jsonParse"
           :options="{
             borderRadius: 10,
             primaryColor: '#eee',
             secondaryColor: '#ccc',
             animate: true,
             speed: 1000,
-            defaultSize: 70,
+            boxSize: 50,
+            circleSize: 50,
+            titleSize: 20,
+            textSize: 15,
           }"
         />
         <h3>Case #1</h3>
@@ -183,11 +196,24 @@ export default {
       type46: [["rec9_16", "title + text"], ["text"], ["text"]],
       type47: [["rec9_16", "title + text:2"], ["text:2"], ["text:2"]],
       type48: [["rec9_16", "title + text:3"], ["text:3"], ["text:3"]],
-      textInput: JSON.stringify(JSON.parse('["box", "title + text"]')),
-      submitData: [["box", "title + text"]],
+
+      textInput: JSON.stringify([["box", "title + text"], ["text:3"]], null, 2),
+      submitData: [],
     };
   },
-
+  filters: {
+    jsonParse: function (stringifiedJson) {
+      if (stringifiedJson) {
+        try {
+          return JSON.parse(stringifiedJson);
+        } catch (e) {
+          return [];
+        }
+      } else {
+        return [];
+      }
+    },
+  },
   methods: {
     convertArrStrToArr(inputStr) {
       return inputStr
@@ -199,11 +225,10 @@ export default {
         .split("-")
         .map((s) => s.split(",").map((v) => v.trim()));
     },
+
     submitValue() {
       try {
-        // console.log("submitValue-textInput: ", this.textInput);
         this.submitData = this.convertArrStrToArr(this.textInput);
-        // console.log("submitValue-submitData: ", this.submitData);
         this.textInput = "";
       } catch (e) {
         console.error(e);
@@ -243,12 +268,7 @@ h3 {
 }
 .editor {
   width: 100%;
-  height: 100px;
+  height: 300px;
   border: 1px solid #ddd;
-}
-
-.minimap,
-.decorationsOverviewRuler {
-  display: none;
 }
 </style>
