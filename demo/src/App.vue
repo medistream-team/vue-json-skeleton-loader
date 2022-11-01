@@ -8,34 +8,14 @@
           <span class="txt"
             >ex&#41; <br />
             &#91;"box", "title + text"&#93;, &#91;"text"&#93; <br />
-            &#91;"rec9_16", "title + text:3"&#93;, &#91;"text:3"&#93;,
+            &#91;"box:90/160", "title + text:3"&#93;, &#91;"text:3"&#93;,
             &#91;"text:3"&#93;
           </span>
-          <input
-            class="input"
-            type="text"
-            v-model="textInput"
-            v-on:keyup.enter="submitValue"
-            placeholder="타입을 입력해주세요"
-          />
         </div>
       </div>
       <div class="samples">
         <h3>Test Case</h3>
-        <VSkeletonLoader
-          :content="textInput | jsonParse"
-          :options="{
-            borderRadius: 10,
-            primaryColor: '#eee',
-            secondaryColor: '#ccc',
-            animate: true,
-            speed: 1000,
-            boxSize: 50,
-            circleSize: 50,
-            titleSize: 20,
-            textSize: 15,
-          }"
-        />
+        <VSkeletonLoader :content="textInput | jsonParse" />
         <h3>Case #1</h3>
         <VSkeletonLoader :content="type1" />
         <h3>Case #2</h3>
@@ -154,48 +134,48 @@ export default {
       type4: [["circle", "text"]],
       type5: [["circle", "text:2"]],
       type6: [["circle", "text:3"]],
-      type7: [["rec16_9", "text"]],
-      type8: [["rec16_9", "text:2"]],
-      type9: [["rec16_9", "text:3"]],
-      type10: [["rec9_16", "text"]],
-      type11: [["rec9_16", "text:2"]],
-      type12: [["rec9_16", "text:3"]],
+      type7: [["box:160/90", "text"]],
+      type8: [["box:160/90", "text:2"]],
+      type9: [["box:160/90", "text:3"]],
+      type10: [["box:90/160", "text"]],
+      type11: [["box:90/160", "text:2"]],
+      type12: [["box:90/160", "text:3"]],
       type13: [["box", "title + text"]],
       type14: [["box", "title + text:2"]],
       type15: [["box", "title + text:3"]],
       type16: [["circle", "title + text"]],
       type17: [["circle", "title + text:2"]],
       type18: [["circle", "title + text:3"]],
-      type19: [["rec16_9", "title + text"]],
-      type20: [["rec16_9", "title + text:2"]],
-      type21: [["rec16_9", "title + text:3"]],
-      type22: [["rec9_16", "title + text"]],
-      type23: [["rec9_16", "title + text:2"]],
-      type24: [["rec9_16", "title + text:3"]],
+      type19: [["box:160/90", "title + text"]],
+      type20: [["box:160/90", "title + text:2"]],
+      type21: [["box:160/90", "title + text:3"]],
+      type22: [["box:90/160", "title + text"]],
+      type23: [["box:90/160", "title + text:2"]],
+      type24: [["box:90/160", "title + text:3"]],
       type25: [["box", "title + text"], ["text"]],
       type26: [["box", "title + text:2"], ["text:2"]],
       type27: [["box", "title + text:3"], ["text:3"]],
       type28: [["circle", "title + text"], ["text"]],
       type29: [["circle", "title + text:2"], ["text:2"]],
       type30: [["circle", "title + text:3"], ["text:3"]],
-      type31: [["rec16_9", "title + text"], ["text"]],
-      type32: [["rec16_9", "title + text:2"], ["text:2"]],
-      type33: [["rec16_9", "title + text:3"], ["text:3"]],
-      type34: [["rec9_16", "title + text"], ["text"]],
-      type35: [["rec9_16", "title + text:2"], ["text:2"]],
-      type36: [["rec9_16", "title + text:3"], ["text:3"]],
+      type31: [["box:160/90", "title + text"], ["text"]],
+      type32: [["box:160/90", "title + text:2"], ["text:2"]],
+      type33: [["box:160/90", "title + text:3"], ["text:3"]],
+      type34: [["box:90/160", "title + text"], ["text"]],
+      type35: [["box:90/160", "title + text:2"], ["text:2"]],
+      type36: [["box:90/160", "title + text:3"], ["text:3"]],
       type37: [["box", "title + text"], ["text"], ["text"]],
       type38: [["box", "title + text:2"], ["text:2"], ["text:2"]],
       type39: [["box", "title + text:3"], ["text:3"], ["text:3"]],
       type40: [["circle", "title + text"], ["text"], ["text"]],
       type41: [["circle", "title + text:2"], ["text:2"], ["text:2"]],
       type42: [["circle", "title + text:3"], ["text:3"], ["text:3"]],
-      type43: [["rec16_9", "title + text"], ["text"], ["text"]],
-      type44: [["rec16_9", "title + text:2"], ["text:2"], ["text:2"]],
-      type45: [["rec16_9", "title + text:3"], ["text:3"], ["text:3"]],
-      type46: [["rec9_16", "title + text"], ["text"], ["text"]],
-      type47: [["rec9_16", "title + text:2"], ["text:2"], ["text:2"]],
-      type48: [["rec9_16", "title + text:3"], ["text:3"], ["text:3"]],
+      type43: [["box:160/90", "title + text"], ["text"], ["text"]],
+      type44: [["box:160/90", "title + text:2"], ["text:2"], ["text:2"]],
+      type45: [["box:160/90", "title + text:3"], ["text:3"], ["text:3"]],
+      type46: [["box:90/160", "title + text"], ["text"], ["text"]],
+      type47: [["box:90/160", "title + text:2"], ["text:2"], ["text:2"]],
+      type48: [["box:90/160", "title + text:3"], ["text:3"], ["text:3"]],
 
       textInput: JSON.stringify([["box", "title + text"], ["text:3"]], null, 2),
       submitData: [],
@@ -211,27 +191,6 @@ export default {
         }
       } else {
         return [];
-      }
-    },
-  },
-  methods: {
-    convertArrStrToArr(inputStr) {
-      return inputStr
-        .replace(/"/g, "")
-        .replace(/'/g, "")
-        .replace(/\[/g, "")
-        .replace(/], /g, "-")
-        .replace(/]/g, "")
-        .split("-")
-        .map((s) => s.split(",").map((v) => v.trim()));
-    },
-
-    submitValue() {
-      try {
-        this.submitData = this.convertArrStrToArr(this.textInput);
-        this.textInput = "";
-      } catch (e) {
-        console.error(e);
       }
     },
   },
@@ -270,5 +229,13 @@ h3 {
   width: 100%;
   height: 300px;
   border: 1px solid #ddd;
+}
+
+.decorationsOverviewRuler {
+  display: none;
+}
+
+.minimap {
+  display: none;
 }
 </style>
