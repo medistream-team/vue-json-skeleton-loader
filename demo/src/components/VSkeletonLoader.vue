@@ -152,14 +152,14 @@
           }"
         >
         </span>
-        <template v-if="element === 'blink'">
+        <template v-if="element === 'blank'">
           <span
             v-for="(element, i) in (element[0], 1)"
             class="element"
             :key="i"
             :style="{
-              width: options.circleSize + 'px',
-              height: options.circleSize + 'px',
+              width: options.boxSize + 'px',
+              height: options.boxSize + 'px',
             }"
           ></span>
         </template>
