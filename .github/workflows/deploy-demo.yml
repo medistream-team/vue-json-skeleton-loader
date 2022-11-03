@@ -1,0 +1,26 @@
+name: Deploy
+on: 
+  push:
+    branches:
+      - feature/packaging
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkou
+      uses: actions/checkout@v2.4.2
+
+    - name: Install Dependencies
+      working-directory: ./demo
+      run: npm install
+
+    - name: build
+      working-directory: ./demo
+      run: npm run build
+      
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: demo/dist # The folder the action should deploy.
