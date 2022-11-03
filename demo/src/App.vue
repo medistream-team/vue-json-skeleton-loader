@@ -118,12 +118,10 @@
 </template>
 
 <script>
-import VSkeletonLoader from "@/components/VSkeletonLoader.vue";
 import MonacoEditor from "vue-monaco";
 export default {
   name: "App",
   components: {
-    VSkeletonLoader,
     MonacoEditor,
   },
   data() {
