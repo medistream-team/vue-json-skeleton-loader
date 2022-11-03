@@ -9,7 +9,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkou
+    - name: Checkout
       uses: actions/checkout@v2.4.2
 
     - name: Install Dependencies
