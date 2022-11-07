@@ -2,14 +2,14 @@ name: Npm Publish
 on: 
   push:
     branches:
-      - feature/npm-package
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: feature/npm-package
+        ref: main
     - uses: actions/setup-node@v2
       with:
         node-version: '14'
