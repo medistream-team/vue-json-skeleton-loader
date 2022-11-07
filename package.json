@@ -1,10 +1,12 @@
 {
   "name": "v-skeleton-loader",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
-    "serve": "cd demo && vue-cli-service serve"
+    "serve": "cd demo && vue-cli-service serve",
+    "build": "vue-cli-service build ./src/index.js --target lib"
   },
-  "files": ["src/index.js", "src/VSkeletonLoader.vue"],
+  "files": ["dist"],
+  "main": "dist/v-skeleton-loader.umd.min.js",
   "dependencies": {
     "vue": "^2.6.11"
   },
