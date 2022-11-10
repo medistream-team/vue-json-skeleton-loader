@@ -1,128 +1,129 @@
 <template>
   <div id="app">
-    <div class="container">
-      <h1>VSkeletonLoader Demo</h1>
-      <MonacoEditor class="editor" v-model="textInput" language="javascript" />
-      <div v-if="false">
-        <div id="textInput">
-          <span class="txt"
-            >ex&#41; <br />
-            &#91;"box", "title + text"&#93;, &#91;"text"&#93; <br />
-            &#91;"box:90/160", "title + text:3"&#93;, &#91;"text:3"&#93;,
-            &#91;"text:3"&#93;
-          </span>
+    <Header />
+    <section class="example-hero">
+      <div>
+        <VSkeletonLoader
+          :options="{
+            radius: 3,
+            primaryColor: '#94bcff',
+            secondaryColor: '#c7dcff',
+            animate: true,
+            speed: '1.5s',
+            defaultSizes: {
+              box: 100,
+              circle: 100,
+              title: 25,
+              text: 15,
+            },
+          }"
+          :content="textInput | jsonParse"
+        />
+        <MonacoEditor
+          class="editor"
+          v-model="textInput"
+          language="javascript"
+        />
+      </div>
+    </section>
+    <Readme />
+    <div class="section">
+      <div class="contain">
+        <h2>Examples</h2>
+        <h3>Text with thumbnail</h3>
+        <div class="group">
+          <VSkeletonLoader class="sk" :content="JSON.parse(textInput1)" />
+          <MonacoEditor
+            class="editor"
+            v-model="textInput1"
+            language="javascript"
+          />
+        </div>
+        <h3>Text with avatar</h3>
+        <div class="group">
+          <VSkeletonLoader class="sk" :content="JSON.parse(textInput2)" />
+          <MonacoEditor
+            class="editor"
+            v-model="textInput2"
+            language="javascript"
+          />
+        </div>
+        <h3>Text with figure</h3>
+        <div class="group">
+          <VSkeletonLoader class="sk" :content="JSON.parse(textInput3)" />
+          <MonacoEditor
+            class="editor"
+            v-model="textInput3"
+            language="javascript"
+          />
+        </div>
+        <div class="group">
+          <VSkeletonLoader class="sk" :content="JSON.parse(textInput4)" />
+          <MonacoEditor
+            class="editor"
+            v-model="textInput4"
+            language="javascript"
+          />
         </div>
       </div>
-      <div class="samples">
-        <h3>Test Case</h3>
-        <VSkeletonLoader :content="textInput | jsonParse" />
-        <h3>Case #1</h3>
-        <VSkeletonLoader :content="type1" />
-        <h3>Case #2</h3>
-        <VSkeletonLoader :content="type2" />
-        <h3>Case #3</h3>
-        <VSkeletonLoader :content="type3" />
-        <h3>Case #4</h3>
-        <VSkeletonLoader :content="type4" />
-        <h3>Case #5</h3>
-        <VSkeletonLoader :content="type5" />
-        <h3>Case #6</h3>
-        <VSkeletonLoader :content="type6" />
-        <h3>Case #7</h3>
-        <VSkeletonLoader :content="type7" />
-        <h3>Case #8</h3>
-        <VSkeletonLoader :content="type8" />
-        <h3>Case #9</h3>
-        <VSkeletonLoader :content="type9" />
-        <h3>Case #10</h3>
-        <VSkeletonLoader :content="type10" />
-        <h3>Case #11</h3>
-        <VSkeletonLoader :content="type11" />
-        <h3>Case #12</h3>
-        <VSkeletonLoader :content="type12" />
-        <h3>Case #13</h3>
-        <VSkeletonLoader :content="type13" />
-        <h3>Case #14</h3>
-        <VSkeletonLoader :content="type14" />
-        <h3>Case #15</h3>
-        <VSkeletonLoader :content="type15" />
-        <h3>Case #16</h3>
-        <VSkeletonLoader :content="type16" />
-        <h3>Case #17</h3>
-        <VSkeletonLoader :content="type17" />
-        <h3>Case #18</h3>
-        <VSkeletonLoader :content="type18" />
-        <h3>Case #19</h3>
-        <VSkeletonLoader :content="type19" />
-        <h3>Case #20</h3>
-        <VSkeletonLoader :content="type20" />
-        <h3>Case #21</h3>
-        <VSkeletonLoader :content="type21" />
-        <h3>Case #22</h3>
-        <VSkeletonLoader :content="type22" />
-        <h3>Case #23</h3>
-        <VSkeletonLoader :content="type23" />
-        <h3>Case #24</h3>
-        <VSkeletonLoader :content="type24" />
-        <h3>Case #25</h3>
-        <VSkeletonLoader :content="type25" />
-        <h3>Case #26</h3>
-        <VSkeletonLoader :content="type26" />
-        <h3>Case #27</h3>
-        <VSkeletonLoader :content="type27" />
-        <h3>Case #28</h3>
-        <VSkeletonLoader :content="type28" />
-        <h3>Case #29</h3>
-        <VSkeletonLoader :content="type29" />
-        <h3>Case #30</h3>
-        <VSkeletonLoader :content="type30" />
-        <h3>Case #31</h3>
-        <VSkeletonLoader :content="type31" />
-        <h3>Case #32</h3>
-        <VSkeletonLoader :content="type32" />
-        <h3>Case #33</h3>
-        <VSkeletonLoader :content="type33" />
-        <h3>Case #34</h3>
-        <VSkeletonLoader :content="type34" />
-        <h3>Case #35</h3>
-        <VSkeletonLoader :content="type35" />
-        <h3>Case #36</h3>
-        <VSkeletonLoader :content="type36" />
-        <h3>Case #37</h3>
-        <VSkeletonLoader :content="type37" />
-        <h3>Case #38</h3>
-        <VSkeletonLoader :content="type38" />
-        <h3>Case #39</h3>
-        <VSkeletonLoader :content="type39" />
-        <h3>Case #40</h3>
-        <VSkeletonLoader :content="type40" />
-        <h3>Case #41</h3>
-        <VSkeletonLoader :content="type41" />
-        <h3>Case #42</h3>
-        <VSkeletonLoader :content="type42" />
-        <h3>Case #43</h3>
-        <VSkeletonLoader :content="type43" />
-        <h3>Case #44</h3>
-        <VSkeletonLoader :content="type44" />
-        <h3>Case #45</h3>
-        <VSkeletonLoader :content="type45" />
-        <h3>Case #46</h3>
-        <VSkeletonLoader :content="type46" />
-        <h3>Case #47</h3>
-        <VSkeletonLoader :content="type47" />
-        <h3>Case #48</h3>
-        <VSkeletonLoader :content="type48" />
+    </div>
+
+    <div class="section section-3">
+      <div class="contain">
+        <h2>Options</h2>
+        <h3>animations none</h3>
+        <div class="view">
+          <VSkeletonLoader
+            :options="{
+              radius: 3,
+              primaryColor: '#ddd',
+              secondaryColor: 'rgba(255, 255, 255, 0.5)',
+              animate: true,
+              speed: '0.5s',
+              defaultSizes: {
+                box: 70,
+                circle: 70,
+                title: 25,
+                text: 15,
+              },
+            }"
+            :content="type2"
+          />
+          <code>{{ type2 }}</code>
+        </div>
+        <div class="view"><Type2 :content="type2" /></div>
+        <h3>animations speed 2s</h3>
+        <div class="view"><Type1 :content="type3" /></div>
+        <h3>secondaryColor</h3>
+        <div class="view"><Type3 :content="type26" /></div>
+        <h3>primaryColor</h3>
+        <div class="view"><Type4 :content="type38" /></div>
+        <License />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Readme from "@/components/Readme.vue";
+import Header from "@/components/Header.vue";
+import Type1 from "@/components/Type1.vue";
+import Type2 from "@/components/Type2.vue";
+import Type3 from "@/components/Type3.vue";
+import Type4 from "@/components/Type4.vue";
+import License from "@/components/License.vue";
 import MonacoEditor from "vue-monaco";
 export default {
   name: "App",
   components: {
+    Header,
     MonacoEditor,
+    Type1,
+    Type2,
+    Type3,
+    Type4,
+    Readme,
+    License,
   },
   data() {
     return {
@@ -175,7 +176,15 @@ export default {
       type47: [["box:90/160", "title + text:2"], ["text:2"], ["text:2"]],
       type48: [["box:90/160", "title + text:3"], ["text:3"], ["text:3"]],
 
-      textInput: JSON.stringify([["box", "title + text"], ["text:3"]], null, 2),
+      textInput: JSON.stringify(
+        [["box", "title + text:3"], ["text:2"]],
+        null,
+        2
+      ),
+      textInput1: JSON.stringify([["box", "text:2"]], null, 2),
+      textInput2: JSON.stringify([["circle", "text:2"]], null, 2),
+      textInput3: JSON.stringify([["box:120/90", "title + text:3"]], null, 2),
+      textInput4: JSON.stringify([["box:90/120", "title + text:5"]], null, 2),
       submitData: [],
     };
   },
@@ -195,37 +204,81 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  width: 700px;
+<style lang="scss">
+@import "@/assets/scss/reset.scss";
+
+.example-hero {
+  padding: 50px 20px;
+  background-color: #4c8bf5;
+  div {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .v-skeleton-loader {
+    margin-bottom: 40px;
+  }
+}
+
+.section {
+  padding: 50px 0;
+
+  .view {
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    .v-skeleton-loader {
+      padding: 20px;
+      background-color: #fff;
+    }
+  }
+
+  h2 {
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .group {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 50px;
+    border: 1px solid #ddd;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .sk {
+      flex: 1 1 60%;
+      padding: 20px;
+      border: 0;
+      border-left: 1px solid #ddd;
+    }
+
+    .editor {
+      flex: 1 0 40%;
+      border: 0;
+    }
+  }
+
+  &.section-3 {
+    background-color: #f9f9f9;
+  }
+}
+
+.contain {
+  max-width: 700px;
+  padding: 0 30px;
   margin: 0 auto;
 }
-h1 {
-  margin: 50px 0;
-}
-h3 {
-  margin: 30px 0;
-}
-#textInput {
-  display: flex;
-  align-items: center;
-}
-.txt {
-  display: inline-block;
-  width: 50%;
-  margin-right: 20px;
-}
-.input {
-  width: 50%;
-  height: 30px;
-  padding: 5px;
-  border-radius: 5px 10px;
-  border: 1px solid #ddd;
-  outline: none;
-}
+
 .editor {
   width: 100%;
-  height: 300px;
+  height: 170px;
   border: 1px solid #ddd;
 }
 
@@ -235,5 +288,13 @@ h3 {
 
 .minimap {
   display: none;
+}
+
+code {
+  display: block;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #666;
+  white-space: pre;
 }
 </style>

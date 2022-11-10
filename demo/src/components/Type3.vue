@@ -160,7 +160,7 @@
             :key="i"
             :style="{
               width: options.defaultSizes.box + 'px',
-              height: options.defaultSizes.box + 'px',
+              height: optionsdefaultSizes.box + 'px',
             }"
           ></span>
         </template>
@@ -173,7 +173,7 @@
 // import { title } from "process";
 
 export default {
-  name: "VSkeletonLoader",
+  name: "Type1",
   props: {
     content: {
       type: Array,
@@ -184,9 +184,9 @@ export default {
         return {
           radius: 3,
           primaryColor: "#ddd",
-          secondaryColor: "rgba(255, 255, 255, 0.5)",
+          secondaryColor: "rgba(0, 0, 0, 0.5)",
           animate: true,
-          speed: "1.5s",
+          speed: "2s",
           defaultSizes: {
             box: 50,
             circle: 50,
@@ -209,51 +209,29 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped>
 .v-skeleton-loader {
-
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: -5px;
-
-    .col {
-      flex-grow: 1;
-      margin: 0 5px;
-    }
-  }
-
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
-
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: -5px;
+}
+.col {
+  flex-grow: 1;
+  margin: 0 5px;
+}
 .element {
   display: block;
   position: relative;
   margin: 5px 0;
   text-indent: -9999px;
   overflow: hidden;
-
-  &.circle {
-    border-radius: 50%;
-  }
-
-  &.title {
-    width: 15%;
-  }
-
-  &.text:nth-child(2) {
-    width: 70%;
-  }
-
-  &.text:nth-child(3) {
-    width: 50%;
-  }
-
-  &.text:nth-child(4) {
-    width: 60%;
-  }
 }
-
 .animation .element:after {
   content: "";
   position: absolute;
@@ -270,10 +248,24 @@ export default {
   );
   animation: shimmer var(--speed) infinite;
 }
-
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
   }
+}
+.element.circle {
+  border-radius: 50%;
+}
+.element.title {
+  width: 15%;
+}
+.element.text:nth-child(2) {
+  width: 70%;
+}
+.element.text:nth-child(3) {
+  width: 50%;
+}
+.element.text:nth-child(4) {
+  width: 60%;
 }
 </style>
