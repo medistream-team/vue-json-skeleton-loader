@@ -253,6 +253,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/reset.scss";
+@import "@/assets/scss/responsive.scss";
 
 .example-hero {
   padding: 50px 20px;
