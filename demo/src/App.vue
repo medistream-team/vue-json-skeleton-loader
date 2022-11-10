@@ -70,8 +70,8 @@
 
     <div class="section section-3">
       <div class="contain">
-        <h2>Options</h2>
-        <h3>animations none</h3>
+        <h2>Properties (options)</h2>
+        <h3>Disable Animation</h3>
         <div class="view">
           <VSkeletonLoader
             :options="{
@@ -89,9 +89,9 @@
             }"
             :content="type2"
           />
-          <code>{{ type2 }}</code>
+          <code>{{ '&lt;v-skeleton-loader :options="{animate: false}" /&gt;' }}</code>
         </div>
-        <h3>animations speed</h3>
+        <h3>Animation Speed</h3>
         <div class="view">
           <VSkeletonLoader
             :options="{
@@ -109,9 +109,9 @@
             }"
             :content="type3"
           />
-          <code>{{ type3 }}</code>
+          <code>{{ '&lt;v-skeleton-loader :options="{speed: \'0.5s\'}" /&gt;' }}</code>
         </div>
-        <h3>radius</h3>
+        <h3>Radius</h3>
         <div class="view">
           <VSkeletonLoader
             :options="{
@@ -129,9 +129,9 @@
             }"
             :content="type3"
           />
-          <code>{{ type3 }}</code>
+          <code>{{ '&lt;v-skeleton-loader :options="{radius: 15}" /&gt;' }}</code>
         </div>
-        <h3>color</h3>
+        <h3>Colors</h3>
         <div class="view">
           <VSkeletonLoader
             :options="{
@@ -149,7 +149,7 @@
             }"
             :content="type26"
           />
-          <code>{{ type26 }}</code>
+          <code>{{ '&lt;v-skeleton-loader :options="{primaryColor: \'#ffb0b0\', secondaryColor: \'#4c8bf5\'}" /&gt;' }}</code>
         </div>
       </div>
     </div>
@@ -285,6 +285,7 @@ export default {
   }
 
   h3 {
+    margin-top: 30px;
     margin-bottom: 10px;
     font-size: 18px;
   }
@@ -292,8 +293,11 @@ export default {
   .group {
     display: flex;
     flex-direction: row-reverse;
-    margin-bottom: 50px;
     border: 1px solid #ddd;
+
+    + .group {
+      margin-top: 20px;
+    }
 
     &:last-child {
       margin-bottom: 0;

@@ -9,10 +9,6 @@
         <code>npm i <span>v-skeleton-loader</span></code>
       </div>
     </div>
-    <div class="title">
-      <h2>Plugin</h2>
-    </div>
-
     <div class="codeBorder">
       <div class="codePadding">
         <code>
@@ -42,7 +38,8 @@ export default {
     margin-bottom: 10px;
 
     h2 {
-      font-size: 20px;
+      margin-bottom: 30px;
+      font-size: 25px;
       line-height: 1.5em;
     }
 
@@ -53,7 +50,7 @@ export default {
   }
 
   .codeBorder {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 
