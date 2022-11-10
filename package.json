@@ -1,6 +1,6 @@
 {
   "name": "v-skeleton-loader",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "scripts": {
     "serve": "cd demo && vue-cli-service serve",
     "build": "vue-cli-service build ./src/index.js --target lib"
