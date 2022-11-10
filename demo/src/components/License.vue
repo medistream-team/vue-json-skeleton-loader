@@ -25,7 +25,7 @@ export default {};
   align-items: center;
   flex-direction: column;
   padding: 30px 0;
-  background-color: #9bc1ff;
+  background-color: #4c8bf5;
 
   p {
     font-size: 14px;

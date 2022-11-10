@@ -78,8 +78,8 @@
               radius: 3,
               primaryColor: '#ddd',
               secondaryColor: 'rgba(255, 255, 255, 0.5)',
-              animate: true,
-              speed: '0.5s',
+              animate: false,
+              speed: '1.5s',
               defaultSizes: {
                 box: 70,
                 circle: 70,
@@ -91,37 +91,84 @@
           />
           <code>{{ type2 }}</code>
         </div>
-        <div class="view"><Type2 :content="type2" /></div>
-        <h3>animations speed 2s</h3>
-        <div class="view"><Type1 :content="type3" /></div>
-        <h3>secondaryColor</h3>
-        <div class="view"><Type3 :content="type26" /></div>
-        <h3>primaryColor</h3>
-        <div class="view"><Type4 :content="type38" /></div>
-        <License />
+        <h3>animations speed</h3>
+        <div class="view">
+          <VSkeletonLoader
+            :options="{
+              radius: 3,
+              primaryColor: '#ddd',
+              secondaryColor: 'rgba(255, 255, 255, 0.5)',
+              animate: true,
+              speed: '0.5s',
+              defaultSizes: {
+                box: 70,
+                circle: 70,
+                title: 25,
+                text: 15,
+              },
+            }"
+            :content="type3"
+          />
+          <code>{{ type3 }}</code>
+        </div>
+        <h3>radius</h3>
+        <div class="view">
+          <VSkeletonLoader
+            :options="{
+              radius: 15,
+              primaryColor: '#ddd',
+              secondaryColor: 'rgba(255, 255, 255, 0.5)',
+              animate: true,
+              speed: '1.5s',
+              defaultSizes: {
+                box: 70,
+                circle: 70,
+                title: 25,
+                text: 15,
+              },
+            }"
+            :content="type3"
+          />
+          <code>{{ type3 }}</code>
+        </div>
+        <h3>color</h3>
+        <div class="view">
+          <VSkeletonLoader
+            :options="{
+              radius: 5,
+              primaryColor: '#ffb0b0',
+              secondaryColor: '#4c8bf5',
+              animate: true,
+              speed: '1.5s',
+              defaultSizes: {
+                box: 70,
+                circle: 70,
+                title: 25,
+                text: 15,
+              },
+            }"
+            :content="type26"
+          />
+          <code>{{ type26 }}</code>
+        </div>
       </div>
     </div>
+    <License />
   </div>
 </template>
 
 <script>
+import VSkeletonLoader from "@/components/VSkeletonLoader.vue";
 import Readme from "@/components/Readme.vue";
 import Header from "@/components/Header.vue";
-import Type1 from "@/components/Type1.vue";
-import Type2 from "@/components/Type2.vue";
-import Type3 from "@/components/Type3.vue";
-import Type4 from "@/components/Type4.vue";
 import License from "@/components/License.vue";
 import MonacoEditor from "vue-monaco";
 export default {
   name: "App",
   components: {
+    VSkeletonLoader,
     Header,
     MonacoEditor,
-    Type1,
-    Type2,
-    Type3,
-    Type4,
     Readme,
     License,
   },
