@@ -1,11 +1,11 @@
 <template>
   <div class="licenseContainer">
     <p>
-      Copyright &copy; 2022 This project is
+      Copyright &copy; 2022 
       <a href="https://github.com/medistream-team">[Medistream]</a>
     </p>
     <p>
-      <a
+      This project is<a
         href="https://github.com/medistream-team/v-skeleton-loader/blob/main/LICENSE"
         >[MIT]</a
       >

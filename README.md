@@ -20,84 +20,48 @@
 
 ### Options
 
-<br>
-
 Options allow you to implement different styles of Skeleton Loaders.
 
-<br>
-
 ```html
-<template>
-  <v-skeleton-loader />
-</template>
-
-<script>
-  import VSkeletonLoader from 'v-skeleton-loader';
-
-  export default {
-  name: "VSkeletonLoader",
-  props: {
-    content: {
-      type: Array,
-    },
-    options: {
-      type: Object,
-      default: function () {
-        return {
-          radius: 3,
-          primaryColor: "#ddd",
-          secondaryColor: "rgba(0, 0, 0, 0.1)",
-          animate: true,
-          speed: "1.5s",
-          defaultSizes: {
-            box: 50,
-            circle: 50,
-            title: 13,
-            text: 10,
-          },
-        };
-      },
-    },
-  },
-</script>
+<VSkeletonLoader
+  :options="{
+            radius: 3,
+            primaryColor: '#94bcff',
+            secondaryColor: '#c7dcff',
+            animate: true,
+            speed: '1.5s',
+            defaultSizes: {
+              box: 100,
+              circle: 100,
+              title: 25,
+              text: 15,
+            },
+          }"
+/>
 ```
 
 ### Content
 
-<br>
-
 You can implement multiple types of skeleton loaders simultaneously using content properties.
-
-<br>
 
 ```html
 <template>
-  <v-skeleton-loader :content="..." />
+  <v-skeleton-loader :content="content" />
 </template>
 
 <script>
-  import VSkeletonLoader from "@/components/VSkeletonLoader.vue";
+  import VSkeletonLoader from "v-skeleton-loader"
 
-  export default {
-    name: "App",
-    components: {
-      VSkeletonLoader,
-    },
-    data() {
-      return {
-        type1: [["box", "text"]],
-        type2: [["box:160/90", "text"]],
-        type3: [["box", "title + text"]],
-        type4: [["box:160/90", "title + text"]],
-        type5: [["box", "title + text"], ["text"]],
-        type6: [["box:160/90", "title + text"], ["text"]],
-        type7: [["box:160/90", "title + text:2"], ["text:2"]],
-        type8: [["box:90/160", "title + text:3"], ["text:3"]],
-        type9: [["box", "title + text"], ["text"], ["text"]],
-        type10: [["box:90/160", "title + text:3"], ["text:3"], ["text:3"]],
+    export default {
+      components: {
+        VSkeletonLoader,
       },
-    },
-  };
+      data() {
+        return {
+          content: [["box", "text"]],
+        },
+      },
+    };
 </script>
 ```
 
