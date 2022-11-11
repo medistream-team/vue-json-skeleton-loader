@@ -1,15 +1,10 @@
 <template>
   <div class="licenseContainer">
     <p>
-      Copyright &copy; 2022 
-      <a href="https://github.com/medistream-team">[Medistream]</a>
+      Copyright © 2022. Built by INTEGRATION Corp.
     </p>
     <p>
-      This project is<a
-        href="https://github.com/medistream-team/v-skeleton-loader/blob/main/LICENSE"
-        >[MIT]</a
-      >
-      licensed.
+      This project is distributed under MIT license.
     </p>
   </div>
 </template>
@@ -25,7 +20,7 @@ export default {};
   align-items: center;
   flex-direction: column;
   padding: 30px 0;
-  background-color: #4c8bf5;
+  background-color: #313236;
 
   p {
     font-size: 14px;

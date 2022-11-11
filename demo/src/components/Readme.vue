@@ -11,12 +11,10 @@
     </div>
     <div class="codeBorder">
       <div class="codePadding">
-        <code>
-          import <span>VSkeletonLoader</span> from
-          <span>'v-skeleton-loader'</span>
-          <br />
-          <span>Vue.use</span>(<span>VSkeletonLoader</span>)</code
-        >
+        <code>import <span>VSkeletonLoader</span> from
+<span>'v-skeleton-loader'</span>
+<br />
+<span>Vue.use</span>(<span>VSkeletonLoader</span>)</code>
       </div>
     </div>
   </div>
@@ -59,7 +57,7 @@ export default {
       line-height: 1.4em;
 
       span {
-        color: #9bc1ff;
+        color: #6AB58A;
       }
     }
   }
