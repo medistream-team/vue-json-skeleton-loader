@@ -1,6 +1,4 @@
-# Vue Skeleton Loader
-
----
+<img width="100%" src="demo/src/assets/logo.png">
 
 ## Installation
 

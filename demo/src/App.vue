@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <Header />
+    <div class="heading">
+      <img src="@/assets/symbol.svg" alt="Vue Skeleton Loader">
+      <h1>Vue Skeleton Loader</h1>
+      <h2>A loader component that can be designed with simple markup.</h2>
+    </div>
     <section class="example-hero">
       <div>
         <VSkeletonLoader
           :options="{
             radius: 3,
-            primaryColor: '#94bcff',
-            secondaryColor: '#c7dcff',
+            primaryColor: '#ccc',
+            secondaryColor: '#ddd',
             animate: true,
             speed: '1.5s',
             defaultSizes: {
@@ -32,7 +36,7 @@
         <h2>Examples</h2>
         <h3>Text with thumbnail</h3>
         <div class="group">
-          <VSkeletonLoader class="sk" :content="JSON.parse(textInput1)" />
+          <VSkeletonLoader class="sk" :content="textInput1 | jsonParse" />
           <MonacoEditor
             class="editor"
             v-model="textInput1"
@@ -41,7 +45,7 @@
         </div>
         <h3>Text with avatar</h3>
         <div class="group">
-          <VSkeletonLoader class="sk" :content="JSON.parse(textInput2)" />
+          <VSkeletonLoader class="sk" :content="textInput2 | jsonParse" />
           <MonacoEditor
             class="editor"
             v-model="textInput2"
@@ -50,7 +54,7 @@
         </div>
         <h3>Text with figure</h3>
         <div class="group">
-          <VSkeletonLoader class="sk" :content="JSON.parse(textInput3)" />
+          <VSkeletonLoader class="sk" :content="textInput3 | jsonParse" />
           <MonacoEditor
             class="editor"
             v-model="textInput3"
@@ -58,7 +62,7 @@
           />
         </div>
         <div class="group">
-          <VSkeletonLoader class="sk" :content="JSON.parse(textInput4)" />
+          <VSkeletonLoader class="sk" :content="textInput4 | jsonParse" />
           <MonacoEditor
             class="editor"
             v-model="textInput4"
@@ -160,17 +164,15 @@
 <script>
 import VSkeletonLoader from "@/components/VSkeletonLoader.vue";
 import Readme from "@/components/Readme.vue";
-import Header from "@/components/Header.vue";
 import License from "@/components/License.vue";
 import MonacoEditor from "vue-monaco";
 export default {
   name: "App",
   components: {
     VSkeletonLoader,
-    Header,
     MonacoEditor,
     Readme,
-    License,
+    License
   },
   data() {
     return {
@@ -223,11 +225,7 @@ export default {
       type47: [["box:90/160", "title + text:2"], ["text:2"], ["text:2"]],
       type48: [["box:90/160", "title + text:3"], ["text:3"], ["text:3"]],
 
-      textInput: JSON.stringify(
-        [["box", "title + text:3"], ["text:2"]],
-        null,
-        2
-      ),
+      textInput: '[\n  ["box", "title + text:2"],\n  ["text:2"]\n]',
       textInput1: JSON.stringify([["box", "text:2"]], null, 2),
       textInput2: JSON.stringify([["circle", "text:2"]], null, 2),
       textInput3: JSON.stringify([["box:120/90", "title + text:3"]], null, 2),
@@ -255,9 +253,29 @@ export default {
 @import "@/assets/scss/reset.scss";
 @import "@/assets/scss/responsive.scss";
 
+.heading {
+  padding: 80px 20px;
+  text-align: center;
+  img {
+    width: 280px;
+  }
+  h1 {
+    margin-top: 40px;
+    font-size: 40px;
+  }
+  h2 {
+    margin-top: 20px;
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+  }
+}
+
 .example-hero {
-  padding: 50px 20px;
-  background-color: #4c8bf5;
+  padding: 80px 20px;
+  border: 1px solid #ddd;
+  border-width: 1px 0;
+  background-color: #f9f9f9;
   div {
     max-width: 700px;
     margin: 0 auto;
@@ -347,6 +365,7 @@ code {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.08);
   color: #666;
+  font-size: 18px;
   white-space: pre;
 }
 </style>
