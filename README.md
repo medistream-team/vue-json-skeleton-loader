@@ -1,5 +1,7 @@
 <img width="100%" src="demo/src/assets/logo.png">
 
+[![Deploy](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/deploy-demo.yml/badge.svg?branch=main)](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/deploy-demo.yml)
+
 ## Installation
 
 <pre>
