@@ -170,8 +170,6 @@
 </template>
 
 <script>
-// import { title } from "process";
-
 export default {
   name: "VSkeletonLoader",
   props: {
