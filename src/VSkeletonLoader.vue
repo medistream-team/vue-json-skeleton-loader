@@ -228,6 +228,7 @@ export default {
 
 .element {
   display: block;
+  overflow: hidden;
   position: relative;
   margin: 5px 0;
   text-indent: -9999px;
