@@ -91,7 +91,7 @@
                 text: 15,
               },
             }"
-            :content="type2"
+            :content="type3"
           />
           <code>{{ '&lt;v-skeleton-loader :options="{animate: false}" /&gt;' }}</code>
         </div>
