@@ -75,7 +75,7 @@
     <div class="section section-3">
       <div class="contain">
         <h2>Properties (options)</h2>
-        <h3>Disable Animation</h3>
+        <h3>Disable animation</h3>
         <div class="view">
           <VSkeletonLoader
             :options="{
@@ -95,7 +95,7 @@
           />
           <code>{{ '&lt;v-skeleton-loader :options="{animate: false}" /&gt;' }}</code>
         </div>
-        <h3>Animation Speed</h3>
+        <h3>Animation speed</h3>
         <div class="view">
           <VSkeletonLoader
             :options="{
@@ -151,86 +151,37 @@
                 text: 15,
               },
             }"
-            :content="type26"
+            :content="type3"
           />
           <code>{{ '&lt;v-skeleton-loader :options="{primaryColor: \'#ffb0b0\', secondaryColor: \'#4c8bf5\'}" /&gt;' }}</code>
         </div>
       </div>
     </div>
-    <License />
+    <Footer />
   </div>
 </template>
 
 <script>
-import VSkeletonLoader from "@/components/VSkeletonLoader.vue";
-import Readme from "@/components/Readme.vue";
-import License from "@/components/License.vue";
+import VSkeletonLoader from "../../src/VSkeletonLoader";
+import Readme from "@/components/Readme";
+import Footer from "@/components/Footer";
 import MonacoEditor from "vue-monaco";
 export default {
   name: "App",
   components: {
     VSkeletonLoader,
-    MonacoEditor,
     Readme,
-    License
+    Footer,
+    MonacoEditor
   },
   data() {
     return {
-      type1: [["box", "text"]],
-      type2: [["box", "text:2"]],
       type3: [["box", "text:3"]],
-      type4: [["circle", "text"]],
-      type5: [["circle", "text:2"]],
-      type6: [["circle", "text:3"]],
-      type7: [["box:160/90", "text"]],
-      type8: [["box:160/90", "text:2"]],
-      type9: [["box:160/90", "text:3"]],
-      type10: [["box:90/160", "text"]],
-      type11: [["box:90/160", "text:2"]],
-      type12: [["box:90/160", "text:3"]],
-      type13: [["box", "title + text"]],
-      type14: [["box", "title + text:2"]],
-      type15: [["box", "title + text:3"]],
-      type16: [["circle", "title + text"]],
-      type17: [["circle", "title + text:2"]],
-      type18: [["circle", "title + text:3"]],
-      type19: [["box:160/90", "title + text"]],
-      type20: [["box:160/90", "title + text:2"]],
-      type21: [["box:160/90", "title + text:3"]],
-      type22: [["box:90/160", "title + text"]],
-      type23: [["box:90/160", "title + text:2"]],
-      type24: [["box:90/160", "title + text:3"]],
-      type25: [["box", "title + text"], ["text"]],
-      type26: [["box", "title + text:2"], ["text:2"]],
-      type27: [["box", "title + text:3"], ["text:3"]],
-      type28: [["circle", "title + text"], ["text"]],
-      type29: [["circle", "title + text:2"], ["text:2"]],
-      type30: [["circle", "title + text:3"], ["text:3"]],
-      type31: [["box:160/90", "title + text"], ["text"]],
-      type32: [["box:160/90", "title + text:2"], ["text:2"]],
-      type33: [["box:160/90", "title + text:3"], ["text:3"]],
-      type34: [["box:90/160", "title + text"], ["text"]],
-      type35: [["box:90/160", "title + text:2"], ["text:2"]],
-      type36: [["box:90/160", "title + text:3"], ["text:3"]],
-      type37: [["box", "title + text"], ["text"], ["text"]],
-      type38: [["box", "title + text:2"], ["text:2"], ["text:2"]],
-      type39: [["box", "title + text:3"], ["text:3"], ["text:3"]],
-      type40: [["circle", "title + text"], ["text"], ["text"]],
-      type41: [["circle", "title + text:2"], ["text:2"], ["text:2"]],
-      type42: [["circle", "title + text:3"], ["text:3"], ["text:3"]],
-      type43: [["box:160/90", "title + text"], ["text"], ["text"]],
-      type44: [["box:160/90", "title + text:2"], ["text:2"], ["text:2"]],
-      type45: [["box:160/90", "title + text:3"], ["text:3"], ["text:3"]],
-      type46: [["box:90/160", "title + text"], ["text"], ["text"]],
-      type47: [["box:90/160", "title + text:2"], ["text:2"], ["text:2"]],
-      type48: [["box:90/160", "title + text:3"], ["text:3"], ["text:3"]],
-
       textInput: '[\n  ["box", "title + text:2"],\n  ["text:2"]\n]',
       textInput1: JSON.stringify([["box", "text:2"]], null, 2),
       textInput2: JSON.stringify([["circle", "text:2"]], null, 2),
       textInput3: JSON.stringify([["box:120/90", "title + text:3"]], null, 2),
-      textInput4: JSON.stringify([["box:90/120", "title + text:5"]], null, 2),
-      submitData: [],
+      textInput4: JSON.stringify([["box:90/120", "title + text:5"]], null, 2)
     };
   },
   filters: {
@@ -250,9 +201,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/reset.scss";
-@import "@/assets/scss/responsive.scss";
-
 .heading {
   padding: 80px 20px;
   text-align: center;
@@ -367,5 +315,32 @@ code {
   color: #666;
   font-size: 18px;
   white-space: pre;
+}
+
+@media (max-width: 1000px) {
+  .header {
+    .header-wrap {
+      flex-direction: column;
+      padding:0 15px !important;
+    }
+  }
+
+  .example-hero {
+    padding:30px 15px !important;
+  }
+
+  .contain {
+    padding:0 15px !important;
+  }
+
+  .section {
+    .group {
+      display:block !important;
+      .sk {
+        border-left:0 !important;
+        border-bottom:1px solid #ddd !important;
+      }
+    }
+  } 
 }
 </style>

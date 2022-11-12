@@ -1,20 +1,14 @@
 <template>
-  <div class="licenseContainer">
+  <div class="footer">
     <p>
-      Copyright © 2022. Built by INTEGRATION Corp.
-    </p>
-    <p>
+      Copyright © 2022. Built by INTEGRATION Corp.<br>
       This project is distributed under MIT license.
     </p>
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style lang="scss">
-.licenseContainer {
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +20,7 @@ export default {};
     font-size: 14px;
     line-height: 1.4em;
     color: #fff;
+    text-align: center;
 
     a {
       color: #fff;
