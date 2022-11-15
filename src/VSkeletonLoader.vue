@@ -1,5 +1,5 @@
 <template>
-  <div class="v-skeleton-loader" :class="{ animation: options.animate }">
+  <div class="v-skeleton-loader" :class="{ animation: assignedOptions.animate }">
     <div
       v-for="(row, rowIndex) in $options.filters.forceToNestedArray(content)" :key="rowIndex"
       class="row">
@@ -26,11 +26,11 @@
             <span
               class="element title"
               :style="{
-                height: options.defaultSizes.title + 'px',
-                borderRadius: options.radius + 'px',
-                backgroundColor: options.primaryColor,
-                '--secondaryColor': options.secondaryColor,
-                '--speed': options.speed,
+                height: assignedOptions.defaultSizes.title + 'px',
+                borderRadius: assignedOptions.radius + 'px',
+                backgroundColor: assignedOptions.primaryColor,
+                '--secondaryColor': assignedOptions.secondaryColor,
+                '--speed': assignedOptions.speed,
               }">
             </span>
           </span>
@@ -41,11 +41,11 @@
               v-for="(elementChild, i) in parseTextChildren(element)" :key="i"
               class="element text"
               :style="{
-                height: options.defaultSizes.text + 'px',
-                borderRadius: options.radius + 'px',
-                backgroundColor: options.primaryColor,
-                '--secondaryColor': options.secondaryColor,
-                '--speed': options.speed,
+                height: assignedOptions.defaultSizes.text + 'px',
+                borderRadius: assignedOptions.radius + 'px',
+                backgroundColor: assignedOptions.primaryColor,
+                '--secondaryColor': assignedOptions.secondaryColor,
+                '--speed': assignedOptions.speed,
               }">
             </span>
           </span>
@@ -62,7 +62,7 @@
                   if (parseBoxSize(element).includes('/')) {
                     return parseBoxSize(element).split(':')[1].split('/')[0] + 'px';
                   }
-                  return options.defaultSizes.box + 'px';
+                  return assignedOptions.defaultSizes.box + 'px';
                 })(),
                 height: (() => {
                   if (!parseBoxSize(element).includes('/')) {
@@ -71,12 +71,12 @@
                   if (parseBoxSize(element).includes('/')) {
                     return parseBoxSize(element).split(':')[1].split('/')[1] + 'px';
                   }
-                  return options.defaultSizes.box + 'px';
+                  return assignedOptions.defaultSizes.box + 'px';
                 })(),
-                borderRadius: options.radius + 'px',
-                backgroundColor: options.primaryColor,
-                '--secondaryColor': options.secondaryColor,
-                '--speed': options.speed,
+                borderRadius: assignedOptions.radius + 'px',
+                backgroundColor: assignedOptions.primaryColor,
+                '--secondaryColor': assignedOptions.secondaryColor,
+                '--speed': assignedOptions.speed,
               }">
             </span>
           </span>
@@ -93,7 +93,7 @@
                   if (parseBoxSize(element).includes('/')) {
                     return parseBoxSize(element).split(':')[1].split('/')[0] + 'px';
                   }
-                  return options.defaultSizes.circle + 'px';
+                  return assignedOptions.defaultSizes.circle + 'px';
                 })(),
                 height: (() => {
                   if (!parseBoxSize(element).includes('/')) {
@@ -102,12 +102,12 @@
                   if (parseBoxSize(element).includes('/')) {
                     return parseBoxSize(element).split(':')[1].split('/')[1] + 'px';
                   }
-                  return options.defaultSizes.circle + 'px';
+                  return assignedOptions.defaultSizes.circle + 'px';
                 })(),
-                borderRadius: options.circleRadius + '%',
-                backgroundColor: options.primaryColor,
-                '--secondaryColor': options.secondaryColor,
-                '--speed': options.speed,
+                borderRadius: assignedOptions.circleRadius + '%',
+                backgroundColor: assignedOptions.primaryColor,
+                '--secondaryColor': assignedOptions.secondaryColor,
+                '--speed': assignedOptions.speed,
               }">
             </span>
           </span>
@@ -128,22 +128,44 @@ export default {
       }
     },
     options: {
-      type: Object,
-      default: function () {
-        return {
-          radius: 3,
-          primaryColor: '#ddd',
-          secondaryColor: 'rgba(255, 255, 255, 0.5)',
-          animate: true,
-          speed: '1.5s',
-          defaultSizes: {
-            box: 50,
-            circle: 50,
-            title: 13,
-            text: 10,
-          }
+      type: Object
+    }
+  },
+  data () {
+    return {
+      defaultOptions: {
+        radius: 3,
+        primaryColor: '#ddd',
+        secondaryColor: 'rgba(255, 255, 255, 0.5)',
+        animate: true,
+        speed: '1.5s',
+        defaultSizes: {
+          box: 50,
+          circle: 50,
+          title: 20,
+          text: 10,
         }
       }
+    }
+  },
+  computed: {
+    assignedOptions: function () {
+      const options = this.options || {};
+      const defaultOptions = this.defaultOptions;
+      let assignedOptions = {
+        radius: options['radius'] || defaultOptions.radius,
+        primaryColor: options['primaryColor'] || defaultOptions.primaryColor,
+        secondaryColor: options['secondaryColor'] || defaultOptions.secondaryColor,
+        animate: options['animate'] !== undefined ? options['animate'] : defaultOptions.animate,
+        speed: options['speed'] || defaultOptions.speed,
+        defaultSizes: {
+          box: options['defaultSizes'] && options['defaultSizes']['box'] ? options['defaultSizes']['box'] : defaultOptions.defaultSizes.box,
+          circle: options['defaultSizes'] && options['defaultSizes']['circle'] ? options['defaultSizes']['circle'] : defaultOptions.defaultSizes.circle,
+          title: options['defaultSizes'] && options['defaultSizes']['title'] ? options['defaultSizes']['title'] : defaultOptions.defaultSizes.title,
+          text: options['defaultSizes'] && options['defaultSizes']['text'] ? options['defaultSizes']['text'] : defaultOptions.defaultSizes.text
+        }
+      }
+      return assignedOptions;
     }
   },
   filters: {
@@ -174,14 +196,14 @@ export default {
       if (element.includes(':')) {
         return element;
       } else {
-        return element + ':' + this.options.defaultSizes.box;
+        return element + ':' + this.assignedOptions.defaultSizes.box;
       }
     },
     parseCircleSize: function (element) {
       if (element.includes(':')) {
         return element;
       } else {
-        return element + ':' + this.options.defaultSizes.circle;
+        return element + ':' + this.assignedOptions.defaultSizes.circle;
       }
     }
   }

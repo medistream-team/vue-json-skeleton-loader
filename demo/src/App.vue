@@ -12,17 +12,12 @@
       <div>
         <VSkeletonLoader
           :options="{
-            radius: 3,
             primaryColor: '#ccc',
             secondaryColor: '#ddd',
-            animate: true,
-            speed: '1.5s',
             defaultSizes: {
               box: 100,
-              circle: 100,
-              title: 25,
-              text: 15,
-            },
+              circle: 100
+            }
           }"
           :content="textInput | jsonParse"
         />
@@ -82,11 +77,7 @@
         <div class="view">
           <VSkeletonLoader
             :options="{
-              radius: 3,
-              primaryColor: '#ddd',
-              secondaryColor: 'rgba(255, 255, 255, 0.5)',
               animate: false,
-              speed: '1.5s',
               defaultSizes: {
                 box: 70,
                 circle: 70,
@@ -94,7 +85,7 @@
                 text: 15,
               },
             }"
-            :content="type3"
+            :content="textInput5"
           />
           <code>{{ '&lt;v-skeleton-loader :options="{animate: false}" /&gt;' }}</code>
         </div>
@@ -102,10 +93,6 @@
         <div class="view">
           <VSkeletonLoader
             :options="{
-              radius: 3,
-              primaryColor: '#ddd',
-              secondaryColor: 'rgba(255, 255, 255, 0.5)',
-              animate: true,
               speed: '0.5s',
               defaultSizes: {
                 box: 70,
@@ -114,7 +101,7 @@
                 text: 15,
               },
             }"
-            :content="type3"
+            :content="textInput5"
           />
           <code>{{ '&lt;v-skeleton-loader :options="{speed: \'0.5s\'}" /&gt;' }}</code>
         </div>
@@ -123,10 +110,6 @@
           <VSkeletonLoader
             :options="{
               radius: 15,
-              primaryColor: '#ddd',
-              secondaryColor: 'rgba(255, 255, 255, 0.5)',
-              animate: true,
-              speed: '1.5s',
               defaultSizes: {
                 box: 70,
                 circle: 70,
@@ -134,7 +117,7 @@
                 text: 15,
               },
             }"
-            :content="type3"
+            :content="textInput5"
           />
           <code>{{ '&lt;v-skeleton-loader :options="{radius: 15}" /&gt;' }}</code>
         </div>
@@ -142,11 +125,8 @@
         <div class="view">
           <VSkeletonLoader
             :options="{
-              radius: 5,
               primaryColor: '#ffb0b0',
               secondaryColor: '#4c8bf5',
-              animate: true,
-              speed: '1.5s',
               defaultSizes: {
                 box: 70,
                 circle: 70,
@@ -154,7 +134,7 @@
                 text: 15,
               },
             }"
-            :content="type3"
+            :content="textInput5"
           />
           <code>{{ '&lt;v-skeleton-loader :options="{primaryColor: \'#ffb0b0\', secondaryColor: \'#4c8bf5\'}" /&gt;' }}</code>
         </div>
@@ -179,12 +159,12 @@ export default {
   },
   data() {
     return {
-      type3: [["box", "text:3"]],
-      textInput: '[\n  ["box", "title + text:2"],\n  ["text:2"]\n]',
+      textInput: '[\n  ["box", "title + text:3"],\n  ["text:2"]\n]',
       textInput1: JSON.stringify([["box", "text:2"]], null, 2),
       textInput2: JSON.stringify([["circle", "text:2"]], null, 2),
       textInput3: JSON.stringify([["box:120/90", "title + text:3"]], null, 2),
-      textInput4: JSON.stringify([["box:90/120", "title + text:5"]], null, 2)
+      textInput4: JSON.stringify([["box:90/120", "title + text:5"]], null, 2),
+      textInput5: [["box", "text:3"]]
     };
   },
   filters: {
@@ -219,6 +199,9 @@ export default {
     color: #999;
     font-size: 18px;
     font-weight: normal;
+  }
+  a {
+    color: #666;
   }
 }
 
