@@ -2,7 +2,8 @@
 
 [![Deploy](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/deploy-demo.yml/badge.svg?branch=main)](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/deploy-demo.yml) [![Npm Publish](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/npm-publish.yml)
 
-## [DEMO](https://medistream-team.github.io/v-skeleton-loader)
+## DEMO
+[Click here](https://medistream-team.github.io/vue-json-skeleton-loader).
 
 ## Installation
 
