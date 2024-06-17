@@ -5,7 +5,7 @@
       <h1>Vue Skeleton Loader</h1>
       <h2>
         A loader component that can be designed with simple markup. - 
-        <a href="https://github.com/medistream-team/v-skeleton-loader" target="_blank">GitHub</a>
+        <a href="https://github.com/medistream-team/vue-json-skeleton-loader" target="_blank">GitHub</a>
       </h2>
     </div>
     <section class="example-hero">

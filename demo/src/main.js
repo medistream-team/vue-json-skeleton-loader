@@ -1,6 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
-import VSkeletonLoader from 'v-skeleton-loader';
+import VSkeletonLoader from 'vue-json-skeleton-loader';
 
 Vue.config.productionTip = false;
 Vue.use(VSkeletonLoader);
