@@ -14,6 +14,7 @@
 
 <pre>
 <code>import VSkeletonLoader from 'vue-json-skeleton-loader';
+import 'vue-json-skeleton-loader/dist/style.css';
 
 Vue.use(VSkeletonLoader);</code>
 </pre>
