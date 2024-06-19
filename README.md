@@ -1,4 +1,4 @@
-<img width="100%" src="demo/src/assets/logo.png">
+<img width="100%" src="logo.png">
 
 [![Deploy](https://github.com/medistream-team/vue-json-skeleton-loader/actions/workflows/deploy-demo.yml/badge.svg?branch=main)](https://github.com/medistream-team/vue-json-skeleton-loader/actions/workflows/deploy-demo.yml) [![Npm Publish](https://github.com/medistream-team/vue-json-skeleton-loader/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/medistream-team/vue-json-skeleton-loader/actions/workflows/npm-publish.yml)
 
