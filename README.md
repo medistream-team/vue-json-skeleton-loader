@@ -14,6 +14,7 @@
 
 <pre>
 <code>import VSkeletonLoader from 'vue-json-skeleton-loader';
+import 'vue-json-skeleton-loader/dist/style.css';
 
 Vue.use(VSkeletonLoader);</code>
 </pre>
@@ -69,7 +70,7 @@ You can implement multiple types of skeleton loaders simultaneously using conten
 Options allow you to implement different styles of Skeleton Loaders.
 
 ```html
-<v-skeketon-loader
+<v-skeleton-loader
   :options="{
     radius: 3,
     primaryColor: '#94bcff',
@@ -84,7 +85,7 @@ Options allow you to implement different styles of Skeleton Loaders.
     }
   }"
 >
-</v-skeketon-loader>
+</v-skeleton-loader>
 ```
 
 ## 📝 License
