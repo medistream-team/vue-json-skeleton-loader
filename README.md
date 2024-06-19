@@ -30,17 +30,17 @@ You can implement multiple types of skeleton loaders simultaneously using conten
 </template>
 
 <script>
-import VSkeletonLoader from 'vue-json-skeleton-loader';
-export default {
-  components: {
-    VSkeletonLoader
-  },
-  data () {
-    return {
-      thumbItem: ['box', 'text']
+  import VSkeletonLoader from 'vue-json-skeleton-loader'
+  export default {
+    components: {
+      VSkeletonLoader
+    },
+    data() {
+      return {
+        thumbItem: ['box', 'text']
+      }
     }
   }
-}
 </script>
 ```
 
@@ -50,21 +50,17 @@ export default {
 </template>
 
 <script>
-import VSkeletonLoader from 'vue-json-skeleton-loader';
-export default {
-  components: {
-    VSkeletonLoader
-  },
-  data () {
-    return {
-      cardItem: [
-        ['blank', 'circle:100', 'blank'],
-        ['title'],
-        ['text:3']
-      ]
+  import VSkeletonLoader from 'vue-json-skeleton-loader'
+  export default {
+    components: {
+      VSkeletonLoader
+    },
+    data() {
+      return {
+        cardItem: [['blank', 'circle:100', 'blank'], ['title'], ['text:3']]
+      }
     }
   }
-}
 </script>
 ```
 
@@ -86,7 +82,8 @@ Options allow you to implement different styles of Skeleton Loaders.
       title: 25,
       text: 15,
     }
-  }">
+  }"
+>
 </v-skeketon-loader>
 ```
 
