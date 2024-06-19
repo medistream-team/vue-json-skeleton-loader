@@ -1,20 +1,19 @@
 <img width="100%" src="demo/src/assets/logo.png">
 
-[![Deploy](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/deploy-demo.yml/badge.svg?branch=main)](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/deploy-demo.yml) [![Npm Publish](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/medistream-team/v-skeleton-loader/actions/workflows/npm-publish.yml)
+[![Deploy](https://github.com/medistream-team/vue-json-skeleton-loader/actions/workflows/deploy-demo.yml/badge.svg?branch=main)](https://github.com/medistream-team/vue-json-skeleton-loader/actions/workflows/deploy-demo.yml) [![Npm Publish](https://github.com/medistream-team/vue-json-skeleton-loader/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/medistream-team/vue-json-skeleton-loader/actions/workflows/npm-publish.yml)
 
-## DEMO
-[Click here](https://medistream-team.github.io/vue-json-skeleton-loader).
+## [DEMO](https://medistream-team.github.io/vue-json-skeleton-loader)
 
 ## Installation
 
 <pre>
-<code>npm i v-skeleton-loader</code>
+<code>npm i vue-json-skeleton-loader</code>
 </pre>
 
 ## Plugin
 
 <pre>
-<code>import VSkeletonLoader from 'v-skeleton-loader';
+<code>import VSkeletonLoader from 'vue-json-skeleton-loader';
 
 Vue.use(VSkeletonLoader);</code>
 </pre>
@@ -31,17 +30,17 @@ You can implement multiple types of skeleton loaders simultaneously using conten
 </template>
 
 <script>
-import VSkeletonLoader from 'v-skeleton-loader';
-export default {
-  components: {
-    VSkeletonLoader
-  },
-  data () {
-    return {
-      thumbItem: ['box', 'text']
+  import VSkeletonLoader from 'vue-json-skeleton-loader'
+  export default {
+    components: {
+      VSkeletonLoader
+    },
+    data() {
+      return {
+        thumbItem: ['box', 'text']
+      }
     }
   }
-}
 </script>
 ```
 
@@ -51,21 +50,17 @@ export default {
 </template>
 
 <script>
-import VSkeletonLoader from 'v-skeleton-loader';
-export default {
-  components: {
-    VSkeletonLoader
-  },
-  data () {
-    return {
-      cardItem: [
-        ['blank', 'circle:100', 'blank'],
-        ['title'],
-        ['text:3']
-      ]
+  import VSkeletonLoader from 'vue-json-skeleton-loader'
+  export default {
+    components: {
+      VSkeletonLoader
+    },
+    data() {
+      return {
+        cardItem: [['blank', 'circle:100', 'blank'], ['title'], ['text:3']]
+      }
     }
   }
-}
 </script>
 ```
 
@@ -87,11 +82,12 @@ Options allow you to implement different styles of Skeleton Loaders.
       title: 25,
       text: 15,
     }
-  }">
+  }"
+>
 </v-skeketon-loader>
 ```
 
 ## 📝 License
 
 Copyright © 2022. Built by INTEGRATION Corp.<br>
-This project is distributed under [MIT](https://github.com/medistream-team/v-skeleton-loader/blob/main/LICENSE) license.
+This project is distributed under [MIT](https://github.com/medistream-team/vue-json-skeleton-loader/blob/main/LICENSE) license.
