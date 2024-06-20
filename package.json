@@ -17,10 +17,17 @@
   },
   "main": "./dist/vue-json-skeleton-loader.umd.cjs",
   "module": "dist/vue-json-skeleton-loader.js",
+  "types": "index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/vue-json-skeleton-loader.umd.cjs",
-      "import": "./dist/vue-json-skeleton-loader.js"
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./dist/vue-json-skeleton-loader.umd.cjs"
+      },
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./dist/vue-json-skeleton-loader.js"
+      }
     },
     "./dist/*.css": {
       "require": "./dist/*.css",
